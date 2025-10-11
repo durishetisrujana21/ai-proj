@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Evaluate Assignment</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 0;
+            color: #232323;
+        }
+        h1 {
+            text-align: center;
+            color: #29487D;
+            margin-top: 40px;
+            font-size: 2.2em;
+        }
+        form {
+            background: #fff;
+            max-width: 450px;
+            margin: 30px auto 0 auto;
+            padding: 32px;
+            border-radius: 10px;
+            box-shadow: 0 2px 12px rgba(41, 72, 125, 0.10);
+            display: flex;
+            flex-direction: column;
+            gap: 22px;
+        }
+        textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 1em;
+            resize: vertical;
+            min-height: 120px;
+        }
+        input[type="submit"] {
+            background: #29487D;
+            color: #fff;
+            padding: 12px 0;
+            border: none;
+            border-radius: 6px;
+            font-size: 1em;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        input[type="submit"]:hover {
+            background: #19243a;
+        }
+        h2 {
+            text-align: center;
+            color: #29487D;
+            margin-top: 40px;
+        }
+        p {
+            background: #fff;
+            max-width: 450px;
+            margin: 10px auto;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 2px 8px rgba(41, 72, 125, 0.1);
+            font-size: 1.1em;
+        }
+        strong {
+            color: #29487D;
+        }
+        a {
+            display: block;
+            width: 80px;
+            margin: 30px auto;
+            text-align: center;
+            background: #29487D;
+            color: #fff;
+            padding: 10px 0;
+            border-radius: 6px;
+            text-decoration: none;
+            transition: background 0.3s;
+        }
+        a:hover {
+            background: #19243a;
+        }
+    </style>
+</head>
+<body>
+    <h1>Evaluate Assignment</h1>
+    <form method="post" action="/evaluate">
+        Student Answer: <textarea name="answer" required></textarea>
+        <input type="submit" value="Evaluate">
+    </form>
+    {% if result %}
+        <h2>Evaluation:</h2>
+        <p><strong>Feedback:</strong> {{ result.feedback }}</p>
+        <p><strong>Score:</strong> {{ result.score }}/5</p>
+        <p><strong>AI Generated:</strong> {{ result.ai_generated }}</p>
+    {% endif %}
+    <a href="/">Home</a>
+</body>
+</html>
